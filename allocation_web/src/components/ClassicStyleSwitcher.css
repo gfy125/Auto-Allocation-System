@@ -1,0 +1,141 @@
+/* 经典样式切换器样式 - 简化版本 */
+.classic-style-switcher {
+  background: #f8f9fa;
+  border: 1px solid #e9ecef;
+  border-radius: 8px;
+  padding: 20px;
+  margin-top: 20px;
+}
+
+.switcher-header {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 15px;
+  border-bottom: 1px solid #dee2e6;
+}
+
+.switcher-icon {
+  font-size: 20px;
+}
+
+.switcher-title {
+  font-size: 16px;
+  font-weight: 600;
+  color: #2c3e50;
+}
+
+/* button container */
+.button-container {
+  display: flex;
+  gap: 12px;
+  margin-bottom: 20px;
+  justify-content: center;
+}
+
+/* style button */
+.style-btn {
+  padding: 12px 20px;
+  border: 2px solid #dee2e6;
+  border-radius: 8px;
+  background: white;
+  color: #495057;
+  font-size: 14px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  min-width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+}
+
+.style-btn:hover:not(.disabled) {
+  border-color: #adb5bd;
+  background: #f8f9fa;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.style-btn.active {
+  border-color: #007bff;
+  background: #007bff;
+  color: white;
+  box-shadow: 0 4px 12px rgba(0, 123, 255, 0.3);
+}
+
+.style-btn.disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* classic button special style */
+.classic-btn.active {
+  border-color: #28a745;
+  background: #28a745;
+  box-shadow: 0 4px 12px rgba(40, 167, 69, 0.3);
+}
+
+/* modern button special style */
+.modern-btn.active {
+  border-color: #6f42c1;
+  background: #6f42c1;
+  box-shadow: 0 4px 12px rgba(111, 66, 193, 0.3);
+}
+
+/* current style indicator */
+.current-style {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  padding: 12px;
+  background: white;
+  border: 1px solid #dee2e6;
+  border-radius: 6px;
+}
+
+.indicator-label {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.indicator-value {
+  font-size: 12px;
+  font-weight: 600;
+  padding: 4px 8px;
+  border-radius: 4px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.indicator-value.classic {
+  background: #d4edda;
+  color: #155724;
+}
+
+.indicator-value.modern {
+  background: #e2d9f3;
+  color: #6f42c1;
+}
+
+/* fade in fade out effect */
+body {
+  transition: opacity 0.3s ease;
+}
+
+/* responsive design */
+@media (max-width: 768px) {
+  .button-container {
+    flex-direction: column;
+    align-items: center;
+  }
+  
+  .style-btn {
+    min-width: 140px;
+  }
+}

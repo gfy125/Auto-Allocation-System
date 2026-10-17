@@ -1,0 +1,60 @@
+/* StyleSwitcher component styles */
+.style-switcher {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  margin-left: 10px;
+}
+
+.style-switcher .style-label {
+  display: flex;
+  align-items: center;
+  gap: 4px;
+  font-size: 12px;
+  color: #6b7280;
+}
+
+.style-switcher .style-buttons {
+  display: flex;
+  gap: 4px;
+}
+
+.style-switcher .style-button {
+  padding: 4px 8px;
+  font-size: 11px;
+  border: 1px solid #d1d5db;
+  border-radius: 4px;
+  background: white;
+  color: #374151;
+  cursor: pointer;
+  transition: all 0.2s;
+}
+
+.style-switcher .style-button:hover {
+  background: #f3f4f6;
+  border-color: #9ca3af;
+}
+
+.style-switcher .style-button.active {
+  background: #3b82f6;
+  color: white;
+  border-color: #3b82f6;
+}
+
+/* hide shadcn/ui button styles in original styles */
+.content-area .style-switcher button[class*="btn-"] {
+  display: none;
+}
+
+.content-area .style-switcher .style-buttons {
+  display: flex !important;
+}
+
+/* hide original button styles in shadcn/ui styles */
+.dashboard-shadcn .style-switcher .style-buttons {
+  display: none;
+}
+
+.dashboard-shadcn .style-switcher button[class*="btn-"] {
+  display: inline-flex !important;
+}

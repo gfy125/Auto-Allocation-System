@@ -1,0 +1,12 @@
+# Application base configuration
+databaseUri: sqlite:///allocation.db
+rateLimitMax: 1000
+skillWeight: 0.4
+scoreWeight: 0.4
+descriptionWeight: 0.2
+minGroupSize: 3
+maxGroupSize: 7
+debug: true
+sqlalchemyEcho: true
+frontendPort: 5175
+backendPort: 3001

@@ -1,0 +1,1105 @@
+/* Import classic style switcher styles */
+@import './ClassicStyleSwitcher.css';
+
+.sidebar {
+  width: 280px;
+  height: 100vh;
+  background: #2c3e50;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  position: fixed;
+  left: 0;
+  top: 0;
+  z-index: 1000; 
+  transition: width 0.3s ease;
+}
+
+.sidebar.compact {
+  width: 80px;
+}
+
+.sidebar.compact.show-labels {
+  width: 120px;
+}
+
+.sidebar-header {
+  padding: 20px;
+  border-bottom: 1px solid #34495e;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 15px;
+  min-height: 120px;
+}
+
+.sidebar.compact .sidebar-header {
+  padding: 20px 10px;
+  min-height: 80px;
+}
+
+.sidebar.compact.show-labels .sidebar-header {
+  padding: 20px 10px;
+  min-height: 80px;
+}
+
+.profile-picture {
+  width: 50px;
+  height: 50px;
+  background: #3498db;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  border: 3px solid #34495e;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.profile-picture img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: all 0.3s ease;
+}
+
+.sidebar.compact .profile-picture {
+  width: 75px;
+  height: 75px;
+  font-size: 20px;
+}
+
+.sidebar.compact.show-labels .profile-picture {
+  width: 100px;
+  height: 100px;
+  font-size: 20px;
+}
+
+.sidebar-header h2 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.sidebar-nav {
+  flex: 1;
+  padding: 20px 0;
+  overflow-y: auto;
+  position: relative;
+}
+
+.sidebar.compact .sidebar-nav {
+  padding: 20px 0;
+}
+
+.sidebar.compact.show-labels .sidebar-nav {
+  padding: 20px 0;
+}
+
+.nav-item {
+  display: flex;
+  align-items: center;
+  padding: 12px 20px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  position: relative;
+  min-height: 50px;
+}
+
+.sidebar.compact .nav-item {
+  padding: 12px 10px;
+  justify-content: center;
+}
+
+.sidebar.compact.show-labels .nav-item {
+  padding: 10px 15px;
+  justify-content: center;
+  min-height: 70px;
+}
+
+.nav-item:hover {
+  background-color: #3498db;
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.nav-item:hover .nav-label {
+  color: white;
+}
+
+.nav-item:hover .nav-icon {
+  color: white;
+}
+
+.nav-item.active {
+  background-color: #ecf0f1;
+  color: #2c3e50;
+  border-radius: 8px;
+  margin: 0 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.sidebar.compact .nav-item.active {
+  margin: 0 5px;
+}
+
+.sidebar.compact.show-labels .nav-item.active {
+  margin: 0 5px;
+}
+
+.nav-item-content {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 8px;
+}
+
+.nav-icon {
+  font-size: 20px;
+  margin-right: 15px;
+  min-width: 20px;
+  text-align: center;
+}
+
+.sidebar.compact .nav-icon {
+  margin-right: 0;
+  font-size: 22px;
+}
+
+.sidebar.compact.show-labels .nav-icon {
+  margin-right: 0;
+  font-size: 24px;
+}
+
+.nav-label {
+  font-size: 11px;
+  font-weight: 500;
+  text-align: center;
+  line-height: 1.2;
+  max-width: 100px;
+  word-wrap: break-word;
+}
+
+.sidebar.compact.show-labels .nav-label {
+  font-size: 16px;
+  max-width: 120px;
+}
+
+
+/* User info and logout button styles - moved to information expandable panel */
+
+/* Sidebar bottom toggle button */
+.sidebar-footer {
+  padding: 20px;
+  border-top: 1px solid #34495e;
+  text-align: center;
+}
+
+/* 删除旧的用户信息响应式样式 */
+
+.sidebar.compact .sidebar-footer {
+  padding: 20px 10px;
+}
+
+.sidebar.compact.show-labels .sidebar-footer {
+  padding: 20px 10px;
+}
+
+.toggle-mode-btn {
+  background: #34495e;
+  border: none;
+  color: white;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  cursor: pointer;
+  font-size: 18px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: all 0.2s ease;
+}
+
+.sidebar.compact .toggle-mode-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.sidebar.compact.show-labels .toggle-mode-btn {
+  width: 35px;
+  height: 35px;
+  font-size: 16px;
+}
+
+.toggle-mode-btn:hover {
+  background: #3498db;
+  transform: scale(1.1);
+  color: white;
+}
+
+/* 名字展开内容 */
+.sidebar-names {
+  border-top: 1px solid #34495e;
+  background: #34495e;
+}
+
+.sidebar-content {
+  padding: 20px;
+}
+
+.sidebar-content h3 {
+  margin: 0 0 20px 0;
+  color: white;
+  font-size: 18px;
+  font-weight: 600;
+  border-bottom: 2px solid #3498db;
+  padding-bottom: 10px;
+}
+
+/* 仪表板统计样式 */
+.dashboard-stats {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.stat-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 15px;
+  background: #f8f9fa;
+  border-radius: 6px;
+  text-align: center;
+  border: 1px solid #e9ecef;
+}
+
+.stat-number {
+  font-size: 24px;
+  font-weight: bold;
+  color: #3498db;
+}
+
+.stat-label {
+  font-size: 12px;
+  color: #6c757d;
+  margin-top: 5px;
+}
+
+/* 信息列表样式 */
+.info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.info-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.info-item:hover {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.info-item:hover .info-text {
+  color: white;
+}
+
+.info-item:hover .info-icon {
+  color: white;
+}
+
+.info-icon {
+  font-size: 20px;
+}
+
+.info-text {
+  font-size: 14px;
+}
+
+/* 大侧边栏面板 */
+.sidebar-panel-container {
+  position: fixed; /* 改为fixed定位，与侧边栏同级 */
+  left: 280px; /* 根据侧边栏宽度定位 */
+  top: 0;
+  width: 350px;
+  height: 100vh;
+  background: white;
+  color: #2c3e50;
+  box-shadow: 2px 0 8px rgba(0,0,0,0.1);
+  overflow-y: auto;
+  z-index: 999; /* 面板的z-index比侧边栏低 */
+  animation: slideInFromLeft 0.3s ease-out;
+  transform-origin: left center;
+}
+
+/* 当侧边栏是紧凑模式时，调整面板位置 */
+.sidebar.compact + .sidebar-panel-container {
+  left: 80px;
+}
+
+/* 当侧边栏显示标签时，调整面板位置 */
+.sidebar.compact.show-labels + .sidebar-panel-container {
+  left: 160px;
+}
+
+.sidebar-panel {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+}
+
+.panel-header {
+  padding: 20px;
+  background: #f8f9fa;
+  border-bottom: 1px solid #e9ecef;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.panel-header h3 {
+  margin: 0;
+  color: #2c3e50;
+  font-size: 18px;
+  font-weight: 600;
+}
+
+.panel-content {
+  flex: 1;
+  padding: 20px;
+  overflow-y: auto;
+}
+
+/* 课程列表样式 */
+.course-list {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.course-item {
+  padding: 15px;
+  border: 1px solid #e9ecef;
+  border-radius: 6px;
+  transition: all 0.2s ease;
+  cursor: pointer;
+}
+
+.course-item:hover {
+  border-color: #3498db;
+  background: #3498db;
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.course-item:hover .course-title,
+.course-item:hover .course-subtitle {
+  color: white;
+}
+
+.course-item.active {
+  border-color: #3498db;
+  background: #f8f9ff;
+}
+
+.course-title {
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 5px;
+  font-size: 14px;
+}
+
+.course-subtitle {
+  color: #6c757d;
+  font-size: 12px;
+  line-height: 1.4;
+}
+
+/* 人员列表样式 */
+.people-list {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.person-item {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px;
+  border-radius: 6px;
+  transition: background-color 0.2s ease;
+  cursor: pointer;
+}
+
+.person-item:hover {
+  background: #3498db;
+  color: white;
+  box-shadow: 0 2px 8px rgba(52, 152, 219, 0.3);
+}
+
+.person-item:hover .person-name {
+  color: white;
+}
+
+.person-item:hover .person-avatar {
+  color: white;
+}
+
+.person-avatar {
+  font-size: 20px;
+}
+
+.person-name {
+  font-size: 14px;
+  color: #2c3e50;
+}
+
+/* 大侧边栏出现动画 - 从左往右 */
+@keyframes slideInFromLeft {
+  0% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+}
+
+/* 大侧边栏收起动画 - 从右往左 */
+.sidebar-panel-container.closing {
+  animation: slideOutToLeft 0.3s ease-in forwards;
+}
+
+@keyframes slideOutToLeft {
+  0% {
+    opacity: 1;
+    transform: translateX(0);
+  }
+  100% {
+    opacity: 0;
+    transform: translateX(-30px);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 1024px) {
+  .sidebar-panel-container {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+@media (max-width: 768px) {
+  .sidebar {
+    width: 100%;
+    height: auto;
+    position: relative;
+  }
+  
+  .sidebar.compact {
+    width: 100%;
+  }
+  
+  .sidebar.compact.show-labels {
+    width: 100%;
+  }
+  
+  .sidebar-panel-container {
+    position: relative;
+    left: 0;
+    width: 100%;
+    height: auto;
+    max-height: 400px;
+  }
+}
+
+/* 展开板中的用户信息样式 */
+.user-info-section {
+  display: flex;
+  align-items: flex-start; /* 改为顶部对齐，避免高度变化影响 */
+  gap: 15px;
+  padding: 20px;
+  background: #f8f9fa;
+  border-radius: 8px;
+  margin-bottom: 20px;
+  border: 1px solid #e9ecef;
+  min-height: 80px; /* 确保最小高度稳定 */
+}
+
+.user-avatar {
+  width: 50px;
+  height: 50px;
+  background: linear-gradient(135deg, #74b9ff 0%, #0984e3 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 24px;
+  flex-shrink: 0; /* 防止头像被压缩 */
+}
+
+.user-details {
+  flex: 1;
+  min-width: 0; /* 允许内容收缩 */
+}
+
+.user-role {
+  font-size: 14px;
+  font-weight: 600;
+  color: #2c3e50;
+  margin-bottom: 4px;
+  height: 20px; /* 固定高度 */
+  display: flex;
+  align-items: center;
+  flex-shrink: 0; /* 防止被压缩 */
+}
+
+.user-name {
+  font-size: 12px;
+  color: #6c757d;
+}
+
+.logout-section {
+  margin: 20px 0;
+  padding: 0 20px;
+}
+
+.logout-btn {
+  width: 100%;
+  padding: 12px 16px;
+  background: linear-gradient(135deg, #ef4444 0%, #dc2626 100%);
+  color: white;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  box-shadow: 0 4px 12px rgba(239, 68, 68, 0.3);
+}
+
+.logout-btn:hover {
+  background: linear-gradient(135deg, #dc2626 0%, #b91c1c 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(239, 68, 68, 0.4);
+}
+
+.logout-btn:active {
+  transform: translateY(0);
+}
+
+.logout-btn .logout-icon {
+  font-size: 16px;
+}
+
+.logout-btn .logout-text {
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.logout-btn-panel {
+  width: 100%;
+  padding: 12px;
+  background: #e74c3c;
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 10px;
+  font-size: 14px;
+  font-weight: 500;
+  transition: all 0.2s ease;
+}
+
+.logout-btn-panel:hover {
+  background: #c0392b;
+  transform: translateY(-1px);
+  box-shadow: 0 4px 12px rgba(231, 76, 60, 0.3);
+}
+
+.logout-text {
+  font-size: 14px;
+}
+
+/* 样式切换器区域 */
+.style-switcher-section {
+  margin-top: 20px;
+  padding-top: 20px;
+  border-top: 1px solid #e9ecef;
+}
+
+.style-switcher-container {
+  margin-top: 15px;
+  display: flex;
+  justify-content: center;
+}
+
+
+
+/* 样式指示器 */
+.style-indicator {
+  margin-left: auto;
+  font-size: 16px;
+  padding: 4px 8px;
+  border-radius: 4px;
+  background: rgba(52, 152, 219, 0.1);
+  color: #3498db;
+  font-weight: 500;
+}
+
+/* 样式切换器按钮特殊样式 */
+.style-switcher-btn {
+  cursor: pointer !important;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: 1px solid #5a6fd8 !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+  position: relative;
+  z-index: 10;
+  margin: 0 !important;
+  padding: 10px !important;
+  border-radius: 8px !important;
+}
+
+.style-switcher-btn .info-icon,
+.style-switcher-btn .info-text {
+  color: white !important;
+}
+
+.style-switcher-btn .style-indicator {
+  background: rgba(255, 255, 255, 0.2) !important;
+  color: white !important;
+  border: 1px solid rgba(255, 255, 255, 0.3) !important;
+}
+
+/* 样式切换器按钮悬停效果 */
+.style-switcher-btn:hover {
+  background: linear-gradient(135deg, #5a6fd8 0%, #6a4c93 100%) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(102, 126, 234, 0.4) !important;
+}
+
+/* 样式切换器按钮点击效果 */
+.style-switcher-btn:active {
+  transform: translateY(0);
+  box-shadow: 0 2px 4px rgba(102, 126, 234, 0.3) !important;
+}
+
+.style-switcher-btn:hover .style-indicator {
+  background: rgba(255, 255, 255, 0.3) !important;
+  border-color: rgba(255, 255, 255, 0.5) !important;
+}
+
+/* 样式切换器按钮禁用状态 */
+.style-switcher-btn.switching {
+  opacity: 0.7 !important;
+  cursor: not-allowed !important;
+  pointer-events: none;
+}
+
+.style-switcher-btn.switching .info-text {
+  position: relative;
+}
+
+.style-switcher-btn.switching .info-text::after {
+  content: '...';
+  animation: switching 1.5s infinite;
+}
+
+/* 样式切换器按钮加载动画 */
+.style-switcher-btn.switching .info-icon {
+  animation: pulse 1.5s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { 
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% { 
+    transform: scale(1.1);
+    opacity: 0.8;
+  }
+}
+
+@keyframes switching {
+  0%, 20% { content: '.'; }
+  40% { content: '..'; }
+  60%, 100% { content: '...'; }
+}
+
+/* 确保样式切换器按钮样式正确应用 */
+.sidebar-panel .style-switcher-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: 1px solid #5a6fd8 !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+}
+
+.sidebar-panel .style-switcher-btn .info-icon,
+.sidebar-panel .style-switcher-btn .info-text {
+  color: white !important;
+}
+
+/* 强制应用样式 */
+.sidebar-panel .info-item.style-switcher-btn {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%) !important;
+  color: white !important;
+  border: 1px solid #5a6fd8 !important;
+  box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3) !important;
+}
+
+/* 可编辑名称样式 */
+.user-name-section {
+  position: relative;
+  min-height: 20px; /* 确保高度稳定 */
+  display: flex;
+  align-items: center;
+  transition: all 0.2s ease; /* 平滑过渡 */
+}
+
+.editable-name {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  padding: 4px 8px;
+  border-radius: 4px;
+  transition: all 0.2s ease;
+  height: 20px; /* 固定高度 */
+  box-sizing: border-box;
+}
+
+.editable-name:hover {
+  background: rgba(52, 152, 219, 0.1);
+}
+
+.edit-icon {
+  font-size: 12px;
+  opacity: 0.6;
+  transition: opacity 0.2s ease;
+}
+
+.editable-name:hover .edit-icon {
+  opacity: 1;
+}
+
+/* 名称编辑容器 */
+.name-edit-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  min-width: 120px;
+  height: 20px; /* 固定高度，与editable-name保持一致 */
+}
+
+.name-edit-input {
+  flex: 1;
+  padding: 4px 8px;
+  border: 1px solid #3498db;
+  border-radius: 4px;
+  font-size: 12px;
+  background: white;
+  color: #2c3e50;
+  outline: none;
+  transition: border-color 0.2s ease;
+  height: 20px; /* 固定高度 */
+  box-sizing: border-box;
+}
+
+.name-edit-input:focus {
+  border-color: #2980b9;
+  box-shadow: 0 0 0 2px rgba(52, 152, 219, 0.2);
+}
+
+/* 编辑按钮 */
+.name-edit-buttons {
+  display: flex;
+  gap: 4px;
+  flex-shrink: 0;
+  height: 20px; /* 固定高度 */
+  align-items: center;
+}
+
+/* 响应式设计 */
+@media (max-width: 768px) {
+  .name-edit-container {
+    min-width: 100px;
+  }
+  
+  .name-edit-input {
+    font-size: 11px;
+    padding: 3px 6px;
+  }
+  
+  .name-save-btn,
+  .name-cancel-btn {
+    min-width: 18px;
+    height: 18px;
+    font-size: 9px;
+  }
+}
+
+.name-save-btn,
+.name-cancel-btn {
+  padding: 2px 6px;
+  border: none;
+  border-radius: 3px;
+  cursor: pointer;
+  font-size: 10px;
+  transition: all 0.2s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-width: 20px;
+  height: 20px;
+}
+
+.name-save-btn {
+  background: #27ae60;
+  color: white;
+}
+
+.name-save-btn:hover {
+  background: #229954;
+  transform: scale(1.1);
+}
+
+.name-cancel-btn {
+  background: #e74c3c;
+  color: white;
+}
+
+.name-cancel-btn:hover {
+  background: #c0392b;
+  transform: scale(1.1);
+}
+
+/* 弹窗样式 */
+/* .modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  backdrop-filter: blur(4px);
+  animation: fadeIn 0.3s ease;
+} */
+
+.modal {
+  background: white;
+  border-radius: 30px;
+  box-shadow: 0 35px 50px rgba(0, 0, 0, 0.3);
+  width: 90%;
+  max-width: 350px;
+  max-height: 90vh;
+  overflow: hidden;
+  animation: slideIn 0.3s ease;
+  border: 1px solid #000000;
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+.modal-header {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  padding: 24px 24px 20px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-header h3 {
+  margin: 0;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+}
+
+.modal-content {
+  padding: 24px 24px 24px 24px;
+  background: white;
+  box-sizing: border-box;
+}
+
+.modal-description {
+  margin-bottom: 24px;
+  text-align: center;
+}
+
+.modal-description p {
+  margin: 0;
+  color: #666;
+  font-size: 14px;
+  line-height: 1.5;
+  font-style: italic;
+}
+
+.form-group {
+  margin-bottom: 24px;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 8px;
+  color: #333;
+  font-weight: 600;
+  font-size: 14px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-input {
+  width: 100%;
+  padding: 18px 20px;
+  border: 2px solid #e1e5e9;
+  border-radius: 12px;
+  font-size: 16px;
+  transition: all 0.3s ease;
+  box-sizing: border-box;
+  background: #f8f9fa;
+  color: #333;
+  font-weight: 500;
+  margin-top: 8px;
+}
+
+.modal-input:focus {
+  outline: none;
+  border-color: #667eea;
+  background: white;
+  box-shadow: 0 0 0 4px rgba(102, 126, 234, 0.1);
+  transform: translateY(-1px);
+}
+
+.modal-input::placeholder {
+  color: #999;
+  font-weight: 400;
+}
+
+.modal-actions {
+  display: flex;
+  gap: 12px;
+  justify-content: flex-end;
+  margin-top: 32px;
+}
+
+.modal-btn {
+  padding: 12px 24px;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+  min-width: 100px;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.modal-btn-secondary {
+  background: white;
+  color: #667eea;
+  border-color: #667eea;
+}
+
+.modal-btn-secondary:hover {
+  background: #667eea;
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.3);
+}
+
+.modal-btn-secondary:active {
+  transform: translateY(0);
+}
+
+.modal-btn-primary {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border-color: #667eea;
+}
+
+.modal-btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+  border-color: #5a6fd8;
+}
+
+.modal-btn-primary:active {
+  transform: translateY(0);
+}
+
+/* 弹窗动画 */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes slideIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px) scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+/* 响应式设计 */
+@media (max-width: 480px) {
+  .modal {
+    width: 95%;
+    margin: 20px;
+  }
+  
+  .modal-header {
+    padding: 20px 20px 16px;
+  }
+  
+  .modal-content {
+    padding: 20px;
+  }
+  
+  .modal-actions {
+    flex-direction: column;
+    gap: 8px;
+  }
+  
+  .modal-btn {
+    width: 100%;
+    min-width: auto;
+  }
+}
